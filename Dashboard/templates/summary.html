@@ -1,0 +1,47 @@
+{% extends 'front_end.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% block style %}
+        <link rel="stylesheet" href="{{ url_for("static",filename="css/summary.css") }}">
+        <script type=text/javascript>$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};</script>
+        <script src="{{ url_for("static",filename="js/summary_demo.js") }}"></script>
+    {% endblock %}
+</head>
+<body>
+    {% block active %}
+            <ul class="nav navbar-nav">
+                    <li ><a href="{{ url_for("Home") }}">HOME</a></li>
+                    <li class="active"><a href="{{ url_for("Summarize") }}">HOME1</a></li>
+                </ul>
+
+    {% endblock %}
+
+    {% block content %}
+
+     <div class="container">
+        <div class="row">
+                    <form role="form" method="POST" action="#">
+                          <div class="form-group">
+                            <label for="name">Original</label>
+                            <textarea class="form-control" rows="10" name="origins" id="origins" autocomplete="off"></textarea>
+                              <div class="col-lg-2 parematers">
+                                    <div class="input-group">
+                                      <input type="text" class="form-control" name="param" id="param">
+                                      <span class="input-group-btn">
+                                        <button class="btn btn-default"  type="button" id="generate">Go!</button>
+                                      </span>
+                                    </div><!-- /input-group -->
+                              </div><!-- /.col-lg-6 -->
+                              <textarea class="form-control" rows="10" name="results" id="results" autocomplete="off">sentence score:</textarea>
+                              <label for="" ></label>
+                          </div>
+                     </form>
+        </div>
+    </div>
+
+    {% endblock %}
+</body>
+</html>

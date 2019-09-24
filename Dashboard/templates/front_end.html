@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{#    {% block style %}#}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="{{ url_for("static",filename="css/bootstrap.min.css") }}">
+    <script src="{{ url_for("static",filename="js/jquery-3.3.1.min.js") }}"></script>
+    <script src="{{ url_for("static",filename="js/bootstrap.min.js") }}"></script>
+    {% block style %}{% endblock %}
+{#    {% endblock  %}#}
+</head>
+ <body>
+
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid container">
+                <div class="row">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">DEMO</a>
+                    </div>
+                <div>
+                {% block active %}
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">HOME</a></li>
+                    <li><a href="{{ url_for( 'Summarize') }}">HOME1</a></li>
+                </ul>
+                    {% endblock  %}
+                    </div>
+            </div>
+        </div>
+</nav>
+        {% block content %}{% endblock %}
+
+ </body>
+    </html>
+
